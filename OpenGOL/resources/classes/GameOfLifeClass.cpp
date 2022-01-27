@@ -250,7 +250,6 @@ bool GameOfLifeClass::addParameters(int pwidth, int pheight, int psize, short* a
 }
 
 bool GameOfLifeClass::Init() {
-    int factor = areaSize > 1000 ? 2 : 1;
 
     cellsToUpdate.reserve(areaSize);
     cellsDied.reserve(areaSize);

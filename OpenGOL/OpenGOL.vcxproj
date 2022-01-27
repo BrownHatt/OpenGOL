@@ -151,16 +151,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="resources\classes\OpenglGridSumClass.cpp" />
+    <ClCompile Include="resources\classes\GridSumClass.cpp" />
     <ClCompile Include="resources\classes\OpenGOLClass.cpp" />
     <ClCompile Include="resources\classes\GameOfLifeClass.cpp" />
     <ClCompile Include="resources\classes\ShaderClass.cpp" />
-    <ClCompile Include="src\opengl_more.cpp" />
+    <ClCompile Include="src\OpenGOL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basic.shader" />
     <None Include="resources\shaders\basic2.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resources\classes\OpenglGridSumClass.h" />
+    <ClInclude Include="resources\classes\GridSumClass.h" />
     <ClInclude Include="resources\classes\OpenGOLClass.h" />
     <ClInclude Include="resources\classes\GameOfLifeClass.h" />
     <ClInclude Include="resources\classes\ShaderClass.h" />

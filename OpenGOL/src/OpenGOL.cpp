@@ -10,6 +10,9 @@
 #include <classes/ShaderClass.h>
 #include <classes/GameOfLifeClass.h>
 
+#include <classes/GridSumClass.h>
+#include <classes/OpenglGridSumClass.h>
+
 #include <array>
 #include <chrono>
 
@@ -74,11 +77,14 @@ int main(void)
    // og.rules[2] = 2;
 
     OpenGOLClass og2 = OpenGOLClass(2, 100);
-    og2.addPattern(otherPattern, 5, 5);
-    og2.generateCellsRaster(0.0f, 0.9f);
+    og2.addPattern(otherPattern, 1, 1);
+    og2.generateCellsRaster(-0.9f, -0.1f);
     og2.setVertexAndIndexBuffer();
-    //og2.rules[2] = 2;
+    // og.rules[2] = 2;
 
+    OpenglGridSumClass oggs = OpenglGridSumClass(1, og.areaWidth / 5);
+    oggs.generateCellsRaster(0.1f, 0.9f);
+    oggs.setVertexAndIndexBuffer();
 
     ShaderClass shaderobj = ShaderClass();
 
@@ -108,16 +114,23 @@ int main(void)
         og2.runGeneration();
         og2.updateBufferArray();
 
+        oggs.gridsumObj.analyzeCellArea(og.cellArea, og.areaSize, og.areaWidth);
+        oggs.updateBufferArray();
+
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shader);
         og.refreshBuffer();
+        //cout << "GOL: drawing " << 6 * og.areaSize << "triangles";
         glDrawElements(GL_TRIANGLES, 6 * og.areaSize, GL_UNSIGNED_INT, nullptr);
-        
+       // og2.refreshBuffer();
+       // glDrawElements(GL_TRIANGLES, 6 * og2.areaSize, GL_UNSIGNED_INT, nullptr);
+
         glUseProgram(shader2);
-        og2.refreshBuffer();
-        glDrawElements(GL_TRIANGLES, 6 * og.areaSize, GL_UNSIGNED_INT, nullptr);
+        oggs.refreshBuffer();
+        //cout << "SUM: drawing " << 6 * oggs.sumSize << "triangles";
+        glDrawElements(GL_TRIANGLES, 6 * oggs.sumSize, GL_UNSIGNED_INT, nullptr);
         
         /* Swap front and back buffers */
         glfwSwapBuffers(window);

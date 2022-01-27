@@ -5,11 +5,8 @@
  void main()  
  {  
   gl_Position = vec4(position.x,position.y,1.0,1.0);  
-
-  if (position.z == 1)
-      pcolor = vec4(1.0, 0.1, 0.1, 0.3);
-  else
-      pcolor = vec4(0, 0.1, 0, 0.3);
+  float col = position.z / 12.0f;
+  pcolor = vec4(0, col, 0, 0.3);
  }  ;
 
 
@@ -19,6 +16,6 @@ out vec4 FragColor;
 in vec4 pcolor;
  void main()  
  {  	 
-     //FragColor = vec4(0.1,0.9,0.1,1.0);
+    // FragColor = vec4(0.1,0.9,0.1,1.0);
      FragColor = pcolor;
  }  ;

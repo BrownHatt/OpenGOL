@@ -18,13 +18,19 @@
     <ClCompile Include="resources\classes\GameOfLifeClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\opengl_more.cpp">
+    <ClCompile Include="src\OpenGOL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="resources\classes\OpenGOLClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="resources\classes\ShaderClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="resources\classes\GridSumClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="resources\classes\OpenglGridSumClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,6 +46,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resources\classes\ShaderClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\classes\GridSumClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\classes\OpenglGridSumClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -36,7 +36,7 @@ public:
         cellArea = new short[areaSize];
         for (int i = 0; i < areaSize; i++)
             cellArea[i] = 0;
-        cout << "init cell area done" << endl;
+        cout << "init cell area done - (size) " << areaSize << endl;
 
         golObj = GameOfLifeClass(golID, areaWidth, areaWidth, areaSize, cellArea, rules, debug);
         cout << "gol Object created" << endl;
@@ -103,6 +103,7 @@ public:
         float cellsizex = (float)1.2 / (areaWidth * 2);
         float cellsizey = (float)1.2 / (areaWidth * 2);
         vector<float> cell;
+        
         for (int i = 0; i < (areaSize); i++)
         {
             makeCellSquare(startx, starty, cellsizex, cellsizey, positionsArea, cellArea[i]);
@@ -157,6 +158,9 @@ public:
 
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * areaSize * sizeof(unsigned int), indicesArray, GL_STATIC_DRAW);
     }
 
     void updateBufferArray() {
