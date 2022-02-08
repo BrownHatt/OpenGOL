@@ -1,6 +1,6 @@
 #shader vertex 
 #version 330 core  
- layout(location=0) in vec3 position;
+ layout(location=0) in vec4 position;
     out vec4 pcolor ;
  void main()  
  {  
@@ -9,7 +9,7 @@
   if (position.z == 1)
       pcolor = vec4(0.1, 0.9, 0.1, 0.3);
   else
-      pcolor = vec4(0, 0.1, 0, 0.3);
+      pcolor = vec4(0, 0, position.w, 0.3);
  }  ;
 
 

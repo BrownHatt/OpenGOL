@@ -92,15 +92,15 @@ public:
 
         positionsArray = positionsArea.data();
         indicesArray = indicesArea.data();
-        //showmePositions();
     }
+
     void setVertexAndIndexBuffer() {
         glGenBuffers(1, &vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
         glBufferData(GL_ARRAY_BUFFER, 12 * sumSize * sizeof(float), positionsArray, GL_DYNAMIC_DRAW);
 
-        glEnableVertexAttribArray(gsID - 1);
-        glVertexAttribPointer(gsID - 1, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
 
         glGenBuffers(1, &indexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
@@ -109,6 +109,7 @@ public:
         cout << "vb:" << vertexBuffer << endl;
         cout << "ib:" << indexBuffer << endl;
     };
+
     void refreshBuffer() {
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
         glBufferData(GL_ARRAY_BUFFER, 12 * sumSize * sizeof(float), positionsArray, GL_DYNAMIC_DRAW);

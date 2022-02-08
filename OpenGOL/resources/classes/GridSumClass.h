@@ -22,8 +22,7 @@ public:
 		void analyzeCellArea(short* cellArea, int areaSize, int areaWidth) {		
 			int x = 0;
 			int y = 0;	
-			//cout << "Analyze: " << sumAreaSize << "steps";
-			for (int i = 0; i < sumAreaSize - (sumAreaWidth * sumSizeWidth) - sumSizeWidth; i++) {
+			for (int i = 0; i < sumAreaSize; i++) {
 				sumArea[i] = getSum(x, y, cellArea, areaWidth);
 				x += sumSizeWidth;
 				if (x > areaWidth-sumSizeWidth) {
@@ -32,20 +31,15 @@ public:
 				}
 
 			}
-			//cout << "--------" << endl;
-			//showSumArea();
 		};
 
 		int getSum(int x, int y, short* cellArea, int areaWidth) {
 			int offset = 0;
 			int sum = 0;
-			//cout << "checking: " << x << "-" << y << ":" << endl;
 			for (int i = 0; i < (sumSizeWidth * sumSizeWidth); i++) {
-				//cout << cellArea[y * areaWidth + x + offset] << " ";
 				sum += (short)cellArea[y * areaWidth + x + offset];
 				offset += 1;
 				if (offset == sumSizeWidth) {					
-				//	cout << endl;
 					y += 1;
 					offset = 0;
 				}

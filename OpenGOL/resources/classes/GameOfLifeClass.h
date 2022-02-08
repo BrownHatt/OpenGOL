@@ -19,7 +19,7 @@ public:
     int sum;
 
     short* cellArea;
-
+    short* cellTerrain;
 
     int8_t* rules;
 
@@ -43,7 +43,7 @@ public:
 
     bool running = true;
 
-    GameOfLifeClass(int id, int pwidth, int pheight, int psize, short* area, int8_t* prules, int32_t* pdebugarray);
+    GameOfLifeClass(int id, int pwidth, int pheight, int psize, short* area, short* terrain, int8_t* prules, int32_t* pdebugarray);
 
     GameOfLifeClass() = default;
 

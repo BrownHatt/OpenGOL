@@ -2,7 +2,7 @@
 #include <chrono>
 #include <thread>
 
-GameOfLifeClass::GameOfLifeClass(int id, int pwidth, int pheight, int psize, short* area, int8_t* prules, int32_t* pdebugarray) {
+GameOfLifeClass::GameOfLifeClass(int id, int pwidth, int pheight, int psize, short* area, short* terrain, int8_t* prules, int32_t* pdebugarray) {
     cell = 0;
     golID = id;
     width = pwidth;
@@ -10,6 +10,7 @@ GameOfLifeClass::GameOfLifeClass(int id, int pwidth, int pheight, int psize, sho
     areaSize = psize;
 
     cellArea = area;
+    cellTerrain = terrain;
     rules = prules;
 
     db_cellsdied = 0;
@@ -102,15 +103,15 @@ int GameOfLifeClass::checkCellDied(int cell, short* cellArea, int sumNb) {
     int* cellAreaposNb;
 
     short cellValue = *(cellArea + cell);
-
+    short terrValue = *(cellTerrain + cell);
 
     if (cellValue == 1)
-        if (sumNb<rules[0] or sumNb>rules[1])
+        if (sumNb<rules[4*terrValue + 0] or sumNb>rules[4 * terrValue + 1])
             return 1;
         else
             return 0;
     else
-        if (sumNb<rules[2] or sumNb>rules[3])
+        if (sumNb<rules[4 * terrValue + 2] or sumNb>rules[4 * terrValue + 3])
             return 3;
         else
             return 2;
