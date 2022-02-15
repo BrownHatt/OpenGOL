@@ -13,6 +13,8 @@
 #include <classes/GridSumClass.h>
 #include <classes/OpenglGridSumClass.h>
 
+#include <classes/BmpToTerrain.h>
+
 #include <array>
 #include <chrono>
 
@@ -70,8 +72,10 @@ int main(void)
       0,0,0,0,0
     };
 
-    OpenGOLClass og = OpenGOLClass(1,100);
-    og.addPattern(gliderPattern, 1, 1);
+    OpenGOLClass og = OpenGOLClass(1,256);
+    og.addPattern(gliderPattern, 50, 30);
+    og.addTerrain("");
+
     og.generateCellsRaster(-0.9f, 0.9f);
     og.setVertexAndIndexBuffer();
     //og.rules[2] = 2;

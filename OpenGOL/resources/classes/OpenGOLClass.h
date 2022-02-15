@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <classes/GameOfLifeClass.h>
+#include <classes/BmpToTerrain.h>
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <math.h>
@@ -62,7 +64,10 @@ public:
         cout << "gol Object created" << endl;
     }
    
-
+    void addTerrain(const char * filename) {
+        BmpToTerrain::MakeTerrain("C:\\Users\\uvroosbr\\Documents\\personal\\codewar_WIP\\VS_projects\\openGOL\\OpenGOL\\OpenGOL\\resources\\terrains\\newterr256x256.bmp", cellTerrain, areaSize);
+       
+    }
     void addPattern(short* pattern, int startx, int starty) {
         cout << "start adding pattern..." << endl;
         int offset = starty * areaWidth + startx;
@@ -123,8 +128,8 @@ public:
         float origy = starty;
         float gridwidth = 0.002f;
         //float cellsizex = (double)size * ((double)screenheight / (double)screenwidth);
-        float cellsizex = (float)1.2 / (areaWidth * 2);
-        float cellsizey = (float)1.2 / (areaWidth * 2);
+        float cellsizex = (float)1.5 / (areaWidth * 2);
+        float cellsizey = (float)1.5 / (areaWidth * 2);
         vector<float> cell;
         
         for (int i = 0; i < (areaSize); i++)

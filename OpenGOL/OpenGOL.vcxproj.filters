@@ -33,6 +33,9 @@
     <ClCompile Include="resources\classes\OpenglGridSumClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="resources\classes\BmpToTerrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basic.shader" />
@@ -52,6 +55,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resources\classes\OpenglGridSumClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resources\classes\BmpToTerrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
